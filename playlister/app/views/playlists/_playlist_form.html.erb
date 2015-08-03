@@ -1,0 +1,20 @@
+<%= form_for playlist do |playlist_fields| %>
+  <%= playlist_fields.label :name, "Playlist Name" %>
+  <%= playlist_fields.text_field :name %>
+  <br>
+  <%= playlist_fields.label :user_id, "Select User" %>
+  <%= playlist_fields.collection_select(
+                                      :user_id,
+                                      User.all,
+                                      :id,
+                                      :name ) %>
+  <br>
+  <%= playlist_fields.label :song_ids, "Select Songs" %>
+  <%= playlist_fields.collection_check_boxes(
+                                              :song_ids,
+                                              Song.all,
+                                              :id,
+                                              :description ) %>
+  <br>
+  <%= playlist_fields.submit "Create Your Playlist" %>
+<% end %>

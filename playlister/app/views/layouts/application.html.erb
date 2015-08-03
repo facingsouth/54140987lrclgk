@@ -8,6 +8,10 @@
 </head>
 <body>
 
+<% flash.each do |type, msg| %>
+  <%=  "#{type.upcase}: #{msg.upcase}" %>
+<% end %>
+
 <%= yield %>
 
 </body>
